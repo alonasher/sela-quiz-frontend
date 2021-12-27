@@ -1,0 +1,24 @@
+<div class="main-page">
+  <div class="container">
+    <app-questions-list
+      (editQuestion)="editQuestion($event)"
+      (showDetails)="showDetails = true"
+    ></app-questions-list>
+    <div>
+      <button class="btn add" (click)="onClickAdd()">
+        Add Question
+      </button>
+    </div>
+  </div>
+  <div class="conatiner side-bar">
+    <app-question-details
+      [questionId]="currentQuestion"
+      (closeDetails)="showDetails = false"
+      *ngIf="showDetails"
+    ></app-question-details>
+    <app-question-form
+      (updateList)="updateList()"
+      *ngIf="showForm"
+    ></app-question-form>
+  </div>
+</div>

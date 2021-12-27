@@ -1,0 +1,10 @@
+<div *ngIf="currentQuestion" class="question-container">
+  <div>
+    <button (click)="exit()">X</button>
+  </div>
+  <h1>
+    {{ currentQuestion?.id }} - {{ currentQuestion?.name }}
+    {{ currentQuestion?.createdAt | date: "shortDate" }}
+  </h1>
+  <p class="content">{{ currentQuestion.content }}</p>
+</div>

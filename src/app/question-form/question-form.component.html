@@ -1,0 +1,28 @@
+<form #questionForm="ngForm" (ngSubmit)="onSubmit()" class="form">
+  <div class="field">
+    <label for="name">Name : </label>
+    <input
+      class="input"
+      id="name"
+      required
+      [(ngModel)]="question.name"
+      name="name"
+      maxlength="15"
+    />
+  </div>
+  <div class="field">
+    <label for="content">Content : </label>
+    <textarea
+      class="input"
+      id="content"
+      required
+      [(ngModel)]="question.content"
+      name="content"
+      maxlength="256"
+    ></textarea>
+  </div>
+  <div class="field add">
+    <button [disabled]="!questionForm.form.valid" type="submit" class="btn">Add</button>
+  </div>
+
+</form>

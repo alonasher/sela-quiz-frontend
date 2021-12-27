@@ -1,0 +1,35 @@
+<form #loginForm="ngForm" class="form">
+  <div class="field">
+    <label for="email">Email : </label>
+    <input
+      class="input"
+      type="email"
+      name="email"
+      required
+      pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+      [(ngModel)]="user.email"
+    />
+  </div>
+  <div class="field">
+    <label for="password">Password : </label>
+    <input
+      class="input"
+      type="password"
+      name="password"
+      required
+      minlength="6"
+      maxlength="20"
+      [(ngModel)]="user.password"
+    />
+  </div>
+  <div *ngIf="error">Wrong email or Password</div>
+  <div class="field submit">
+    <button
+      class="submit-btn"
+      (click)="onSubmit()"
+      [disabled]="!loginForm.form.valid"
+    >
+      Login
+    </button>
+  </div>
+</form>
